@@ -14,6 +14,12 @@ public class FP01Functional {
 		printAllEvenNumbersInListFunctional(numbersList);
 		System.out.println("\n\n");
 		printAllOddNumbersInListFunctional(numbersList);
+		System.out.println("\n\n");
+		printAllSquaresOfEvenNumbersInListFunctional(numbersList);
+		System.out.println("\n\n");
+		printAllCubesOfOddNumbersInListFunctional(numbersList);
+		System.out.println("\n\n");
+		
 	}
 
 //private static void print(int number) {
@@ -31,6 +37,16 @@ public class FP01Functional {
 	private static void printAllEvenNumbersInListFunctional(List<Integer> numbersList) {
 		// What to do? method reference & lambda expression
 		numbersList.stream().filter(FP01Functional::isEven).forEach(number -> System.out.println(number));
+	}
+	
+	private static void printAllSquaresOfEvenNumbersInListFunctional(List<Integer> numbersList) {
+		// What to do? method reference & lambda expression
+		numbersList.stream().filter(number -> number%2==0).map(number -> number*number).forEach(number -> System.out.println(number));
+	}
+	
+	private static void printAllCubesOfOddNumbersInListFunctional(List<Integer> numbersList) {
+		// What to do? method reference & lambda expression
+		numbersList.stream().filter(number -> number%2!=0).map(number -> number*number*number).forEach(number -> System.out.println(number));
 	}
 
 	private static void printAllOddNumbersInListFunctional(List<Integer> numbersList) {
