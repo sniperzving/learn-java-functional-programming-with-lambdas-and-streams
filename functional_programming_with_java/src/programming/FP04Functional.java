@@ -13,26 +13,11 @@ public class FP04Functional {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		List<Integer> doubledNumbers = doubleList(numbersList);
-		System.out.println(doubledNumbers);
-		System.out.println("\n\n\n");
-		System.out.println("Even numbers list : "+getEvenNumbersList(doubledNumbers));
-		System.out.println("\n\n\n");
-		System.err.println(getLengthsOfAllCoursesList(courses));
-		System.out.println("\n\n\n");
+		numbersList.stream().distinct().sorted().forEach(System.out::println);
+		
+		
 	}
 
-	private static List<Integer> doubleList(List<Integer> numberslist2) {
-		return numbersList.stream().map(nb -> nb * nb).collect(Collectors.toList());
-	}
 	
-	private static List<Integer> getEvenNumbersList(List<Integer> numberslist2) {
-		return numbersList.stream().filter(nb -> nb%2 == 0).sorted(Comparator.naturalOrder()).collect(Collectors.toList());
-	}
-	
-	private static List<Integer> getLengthsOfAllCoursesList(List<String> courses) {
-		return courses.stream().map(course -> course.length()).collect(Collectors.toList());
-	}
 
 }
