@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 public class FP02Functional {
 	private static final List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices", "AWS", "PCF",
 			"Azure", "Docker", "Kubernetes");
-	private static final List<Integer> numbersList = List.of(-12, 12, 9, 13, 4, 6, 2, 4, 12, 15);
+	private static final List<Integer> numbersList = List.of(12, 9, 13, 4, 6, 2, 4, 12, 15);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,6 +28,34 @@ public class FP02Functional {
 		int min = addMinListFunctional(numbersList);
 		System.out.println(min);
 		System.out.println("\n\n");
+		
+		int squaresSum = addSquaresSumInListFunctional(numbersList);
+		System.out.println("squaresSum : " +squaresSum);
+		System.out.println("\n\n");
+		
+		int cubessSum = addCubesSumInListFunctional(numbersList);
+		System.out.println("cubessSum : "+cubessSum);
+		System.out.println("\n\n");
+		
+		int oddNumbersSum = addOddNumbersSumInListFunctional(numbersList);
+		System.out.println("oddNumbersSum : "+oddNumbersSum);
+		System.out.println("\n\n");
+	}
+
+	private static int addOddNumbersSumInListFunctional(List<Integer> numberslist2) {
+		
+		return numberslist2.stream().filter(number -> number%2 != 0).reduce(0, (x, y) -> x+y);
+	}
+
+	private static int addCubesSumInListFunctional(List<Integer> numberslist2) {
+		return numberslist2.stream().reduce(0, (x, y) -> x+y*y*y);
+//		return numberslist2.stream().map(nb -> nb*nb*,nb).reduce(0, (x, y) -> x+y);
+	}
+
+	private static int addSquaresSumInListFunctional(List<Integer> numberslist2) {
+		
+		return numberslist2.stream().reduce(0, (x, y) -> x+y*y);
+//		return numberslist2.stream().map(nb -> nb*nb).reduce(0, (x, y) -> x+y);
 	}
 
 	private static int addMaxListFunctional(List<Integer> numberslist2) {
