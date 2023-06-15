@@ -1,5 +1,6 @@
 package programming;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -17,7 +18,35 @@ public class FP03Functional {
 		System.out.println("\n\n");
 		
 		addNonDuplicateNumbersInListFunctional(numbersList);
+		System.out.println("\n\n");
 		addNonDuplicateSortedNumbersInListFunctional(numbersList);
+		System.out.println("\n\n");
+		addNonDuplicateSortedCoursesInListFunctional(courses);
+		System.out.println("\n\n");
+		addNonDuplicateSortedRevrseOrderCoursesInListFunctional(courses);
+		System.out.println("\n\n");
+		addNonDuplicateSortedCoursesInListByLengthFunctional(courses);
+		System.out.println("\n\n");
+		addNonDuplicateSortedCoursesInListByLengthReversedFunctional(courses);
+	}
+
+	private static void addNonDuplicateSortedCoursesInListFunctional(List<String> numberslist2) {
+		courses.stream().distinct().sorted(Comparator.naturalOrder()).forEach(System.out::println);
+		
+	}
+	
+	private static void addNonDuplicateSortedRevrseOrderCoursesInListFunctional(List<String> numberslist2) {
+		courses.stream().distinct().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+		
+	}
+	
+	private static void addNonDuplicateSortedCoursesInListByLengthFunctional(List<String> coursesList) {
+		coursesList.stream().distinct().sorted(Comparator.comparing(str -> str.length())).forEach(System.out::println);
+		
+	}
+	
+	private static void addNonDuplicateSortedCoursesInListByLengthReversedFunctional(List<String> coursesList) {
+		coursesList.stream().distinct().sorted(Comparator.comparing(String::length).reversed()).forEach(System.out::println);
 		
 	}
 
